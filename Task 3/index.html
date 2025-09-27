@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FitTrack - Your ultimate fitness companion. Track workouts, monitor progress, and stay motivated with our comprehensive fitness tracking app.">
+    <meta name="keywords" content="fitness, workout, tracking, app, health, exercise, nutrition, progress">
+    <meta name="author" content="FitTrack Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FitTrack - Your Ultimate Fitness Companion">
+    <meta property="og:description" content="Transform your body and life with FitTrack. Track workouts, monitor progress, and join a community of fitness enthusiasts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fittrack-app.com">
+    <meta property="og:image" content="https://fittrack-app.com/assets/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FitTrack - Your Ultimate Fitness Companion">
+    <meta name="twitter:description" content="Transform your body and life with FitTrack. Track workouts, monitor progress, and join a community of fitness enthusiasts.">
+    <meta name="twitter:image" content="https://fittrack-app.com/assets/twitter-card.jpg">
+    
+    <title>FitTrack - Your Ultimate Fitness Companion</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏋️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏋️</text></svg>">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ff6b35">
+    <meta name="msapplication-TileColor" content="#ff6b35">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Remove no-js class if JavaScript is enabled -->
+    <script>
+        document.documentElement.classList.remove('no-js');
+        
+        // Simple dark mode test
+        console.log('Inline script running...');
+        
+        // Test dark mode immediately
+        function testDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            if (toggle) {
+                console.log('Dark mode toggle found in inline script');
+                toggle.addEventListener('click', function() {
+                    console.log('Dark mode toggle clicked!');
+                    const html = document.documentElement;
+                    const currentTheme = html.getAttribute('data-theme') || 'light';
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    console.log('Changing theme from', currentTheme, 'to', newTheme);
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    // Update icon
+                    const icon = toggle.querySelector('i');
+                    if (icon) {
+                        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                    }
+                });
+            } else {
+                console.log('Dark mode toggle NOT found in inline script');
+            }
+        }
+        
+        // Run test when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', testDarkMode);
+        } else {
+            testDarkMode();
+        }
+        
+        // FAQ functionality
+        function initFAQInline() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            console.log('Found FAQ items:', faqItems.length);
+            
+            faqItems.forEach((item, index) => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                if (question && answer) {
+                    console.log('Setting up FAQ item', index);
+                    
+                    // Initialize answer styles
+                    answer.style.maxHeight = '0';
+                    answer.style.overflow = 'hidden';
+                    answer.style.transition = 'max-height 0.3s ease-out';
+                    
+                    question.addEventListener('click', function() {
+                        console.log('FAQ clicked:', question.textContent.trim());
+                        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                        
+                        // Close all other FAQ items
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                const otherQuestion = otherItem.querySelector('.faq-question');
+                                const otherAnswer = otherItem.querySelector('.faq-answer');
+                                
+                                if (otherQuestion && otherAnswer) {
+                                    otherQuestion.setAttribute('aria-expanded', 'false');
+                                    otherAnswer.classList.remove('active');
+                                    otherAnswer.style.maxHeight = '0';
+                                }
+                            }
+                        });
+                        
+                        // Toggle current item
+                        const newExpanded = !isExpanded;
+                        question.setAttribute('aria-expanded', newExpanded);
+                        
+                        if (newExpanded) {
+                            answer.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            console.log('Expanding FAQ answer');
+                        } else {
+                            answer.classList.remove('active');
+                            answer.style.maxHeight = '0';
+                            console.log('Collapsing FAQ answer');
+                        }
+                    });
+                } else {
+                    console.log('FAQ item', index, 'missing question or answer element');
+                }
+            });
+        }
+        
+        // Initialize FAQ when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFAQInline);
+        } else {
+            initFAQInline();
+        }
+    </script>
+</head>
+<body class="no-js">
+    <!-- Skip to content link for accessibility -->
+    <a href="#hero" class="skip-link">Skip to main content</a>
+    
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">FitTrack</h1>
+                <p class="hero-subtitle fade-in">Transform Your Body, Transform Your Life</p>
+                <p class="hero-description fade-in">
+                    The ultimate fitness tracking app that helps you achieve your goals with personalized workouts, 
+                    nutrition guidance, and community support.
+                </p>
+                <button class="cta-button fade-in" aria-label="Download FitTrack app">
+                    <i class="fas fa-download"></i>
+                    Download Now
+                </button>
+                <div class="hero-stats fade-in">
+                    <div class="stat">
+                        <span class="stat-number">500K+</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.8★</span>
+                        <span class="stat-label">App Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Workouts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="app-preview">
+                            <div class="workout-card">
+                                <h3>Today's Workout</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <p>45 min • Strength Training</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title slide-in">Why Choose FitTrack?</h2>
+            <div class="features-grid">
+                <div class="feature-card slide-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Track Workouts</h3>
+                    <p>Log your exercises, sets, reps, and weights with our intuitive interface. Track your progress over time and stay motivated.</p>
+                </div>
+                <div class="feature-card slide-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Nutrition Plans</h3>
+                    <p>Get personalized meal plans and track your daily nutrition. Our AI-powered recommendations help you reach your goals faster.</p>
+                </div>
+                <div class="feature-card slide-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Progress Reports</h3>
+                    <p>Visualize your fitness journey with detailed analytics, progress photos, and comprehensive reports on your achievements.</p>
+                </div>
+                <div class="feature-card slide-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Challenges</h3>
+                    <p>Join thousands of users in fitness challenges, share your progress, and get support from our amazing community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title slide-in">What Our Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card slide-in">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"FitTrack completely transformed my fitness journey. I lost 30 pounds in 6 months and feel stronger than ever!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">SJ</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card slide-in">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The community challenges keep me motivated every day. I've made incredible friends and achieved goals I never thought possible."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">MC</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mike Chen</h4>
+                            <span>Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card slide-in">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The nutrition tracking feature is amazing. I finally understand what I'm eating and can make better choices for my health."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <div class="avatar-placeholder">ER</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <span>Teacher</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title slide-in">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card slide-in">
+                    <div class="plan-header">
+                        <h3>Free</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Basic workout tracking</li>
+                        <li><i class="fas fa-check"></i> Simple progress reports</li>
+                        <li><i class="fas fa-check"></i> Community access</li>
+                        <li><i class="fas fa-times"></i> Nutrition plans</li>
+                        <li><i class="fas fa-times"></i> Advanced analytics</li>
+                    </ul>
+                    <button class="plan-button">Get Started</button>
+                </div>
+                <div class="pricing-card featured slide-in">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">9.99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Unlimited workout tracking</li>
+                        <li><i class="fas fa-check"></i> Personalized nutrition plans</li>
+                        <li><i class="fas fa-check"></i> Advanced progress reports</li>
+                        <li><i class="fas fa-check"></i> Priority community support</li>
+                        <li><i class="fas fa-check"></i> Custom workout plans</li>
+                    </ul>
+                    <button class="plan-button featured">Start Premium</button>
+                </div>
+                <div class="pricing-card slide-in">
+                    <div class="plan-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">19.99</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Premium</li>
+                        <li><i class="fas fa-check"></i> Personal trainer consultation</li>
+                        <li><i class="fas fa-check"></i> Meal delivery integration</li>
+                        <li><i class="fas fa-check"></i> Advanced AI insights</li>
+                        <li><i class="fas fa-check"></i> Priority feature access</li>
+                    </ul>
+                    <button class="plan-button">Go Pro</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title slide-in">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item slide-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How accurate is the workout tracking?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>FitTrack uses advanced motion sensors and AI technology to provide highly accurate workout tracking. Our system recognizes over 500 different exercises with 95% accuracy, ensuring you get reliable data about your fitness progress.</p>
+                    </div>
+                </div>
+                <div class="faq-item slide-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I sync my data with other fitness apps?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! FitTrack integrates with popular fitness apps like Apple Health, Google Fit, MyFitnessPal, and Strava. You can seamlessly sync your workout data, nutrition information, and health metrics across all your favorite platforms.</p>
+                    </div>
+                </div>
+                <div class="faq-item slide-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is there a free trial for premium features?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer a 14-day free trial for all premium features. No credit card required to start your trial. Experience the full power of FitTrack and see how it can transform your fitness journey.</p>
+                    </div>
+                </div>
+                <div class="faq-item slide-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How does the community challenge system work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our community challenges are designed to keep you motivated and connected. Join weekly and monthly challenges, compete with friends, earn badges, and celebrate achievements together. Challenges range from step counts to specific workout goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FitTrack</h3>
+                    <p>Your ultimate fitness companion for achieving your health and wellness goals.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for fitness tips and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitTrack. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

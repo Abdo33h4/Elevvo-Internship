@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech & Travel Blog</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%232563eb'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='28' fill='white' font-family='Arial, Helvetica, sans-serif'%3ET%3C/text%3E%3C/svg%3E" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            container: { center: true, padding: '1rem' },
+            colors: { brand: { 500: '#3b82f6', 600: '#2563eb' } },
+            boxShadow: { card: '0 10px 20px -10px rgba(0,0,0,0.2)' },
+          }
+        }
+      }
+    </script>
+    <style>
+      .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
+    <!-- React 18 UMD + ReactDOM (no Babel, file:// compatible) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div id="root"></div>
+    <!-- App scripts (plain JS). Order matters. -->
+    <script src="src/data/posts.js"></script>
+    <script src="src/components/Header.js"></script>
+    <script src="src/components/CategoryFilter.js"></script>
+    <script src="src/components/SearchBar.js"></script>
+    <script src="src/components/PostCard.js"></script>
+    <script src="src/components/Pagination.js"></script>
+    <script src="src/App.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+  </html>
+
+

@@ -1,0 +1,13 @@
+// Sample blog posts data
+window.POSTS = [
+  { id: 1, title: 'Building a React App with Hooks', category: 'Tech', description: 'Learn how to build modern React applications using functional components and hooks. We cover state, effects, and composition.', image: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1640&auto=format&fit=crop', date: '2025-08-20' },
+  { id: 2, title: 'Weekend in Kyoto: Temples and Tea', category: 'Travel', description: 'A slow travel guide through Kyoto’s serene temples, tea houses, and hidden alleys. Tips for first-time visitors.', image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1640&auto=format&fit=crop', date: '2025-07-05' },
+  { id: 3, title: 'Mastering CSS Grid for Responsive Layouts', category: 'Tech', description: 'CSS Grid unlocks powerful responsive layouts with minimal code. This guide walks through practical patterns.', image: 'https://images.unsplash.com/photo-1555066931-bf19f8fd1085?q=80&w=1640&auto=format&fit=crop', date: '2025-06-12' },
+  { id: 4, title: 'Sicilian Street Food you cannot miss', category: 'Food', description: 'An indulgent tour of Palermo’s street food scene: arancini, panelle, and cannoli. Where to find the best bites.', image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1640&auto=format&fit=crop', date: '2025-06-01' },
+  { id: 5, title: 'Hiking the Dolomites: A 3-Day Itinerary', category: 'Travel', description: 'Crisp air, jagged peaks, alpine huts. A beginner-friendly, breathtaking route with packing tips and maps.', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1640&auto=format&fit=crop', date: '2025-05-18' },
+  { id: 6, title: '10 VS Code Extensions for Productivity', category: 'Tech', description: 'From code navigation to formatting and AI pair programming, these extensions supercharge your workflow.', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1640&auto=format&fit=crop', date: '2025-04-22' },
+  { id: 7, title: 'Perfecting Homemade Ramen Broth', category: 'Food', description: 'Rich, umami-packed broth made at home. Techniques, ingredients, and timing to nail the flavor.', image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1640&auto=format&fit=crop', date: '2025-04-10' },
+  { id: 8, title: 'Travel Photography: Shooting in Harsh Sunlight', category: 'Travel', description: 'Overcome midday glare with composition tricks, reflectors, and camera settings for crisp travel shots.', image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1640&auto=format&fit=crop', date: '2025-03-15' },
+]
+
+

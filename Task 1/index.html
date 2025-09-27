@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <title>Dashboard</title>
+
+</head>
+
+<body>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <!-- Logo Area -->
+            <div class="sidebar-header">
+                <div class="logo">📚</div>
+                <h2 class="logo-text">EduPortal</h2>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="dashboard" data-tooltip="Dashboard">
+                        <span class="icon">📊</span>
+                        <span class="text">Dashboard</span>
+                    </a></li>
+                <li><a href="#" class="nav-link" data-page="assignments" data-tooltip="Assignments">
+                        <span class="icon">📝</span>
+                        <span class="text">Assignments</span>
+                    </a></li>
+                <li><a href="#" class="nav-link" data-page="grades" data-tooltip="Grades">
+                        <span class="icon">📈</span>
+                        <span class="text">Grades</span>
+                    </a></li>
+                <li><a href="#" class="nav-link" data-page="messages" data-tooltip="Messages">
+                        <span class="icon">💬<span class="badge">3</span></span>
+                        <span class="text">Messages</span>
+                    </a></li>
+                <li><a href="#" class="nav-link" data-page="settings" data-tooltip="Settings">
+                        <span class="icon">⚙️</span>
+                        <span class="text">Settings</span>
+                    </a></li>
+            </ul>
+
+            <!-- Toggle Button -->
+            <button class="toggle-btn" id="toggleBtn" title="Toggle Sidebar">
+                <span class="toggle-icon">◀</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="pageTitle">Dashboard</h1>
+                <div class="user-info">
+                    <span>Welcome back, Alex! 👋</span>
+                    <button class="dark-mode-toggle" id="darkModeToggle">🌙 Dark Mode</button>
+                </div>
+            </header>
+
+            <div class="content-area" id="contentArea">
+                <!-- Dashboard Content (Default) -->
+                <div class="dashboard-content">
+                    <div class="content-card">
+                        <h2>📊 Your Academic Overview</h2>
+                        <p>Here's a quick summary of your academic progress this semester.</p>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3>4</h3>
+                                <p>Pending Assignments</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>85%</h3>
+                                <p>Average Grade</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>12</h3>
+                                <p>Completed Projects</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>3</h3>
+                                <p>New Messages</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🎯 Quick Actions</h3>
+                        <p>Navigate to different sections using the sidebar menu. Try collapsing it to save space!</p>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>📝 Check your latest assignments</li>
+                            <li>📈 Review your grades and progress</li>
+                            <li>💬 Read new messages from instructors</li>
+                            <li>⚙️ Customize your dashboard settings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

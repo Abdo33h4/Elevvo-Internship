@@ -1,0 +1,65 @@
+{
+  "name": "fittrack-landing-page",
+  "version": "1.0.0",
+  "description": "A modern, responsive one-page website for FitTrack - a fictional fitness tracking app",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000 -o",
+    "dev": "npx live-server --port=8000 --open=/index.html",
+    "build": "echo 'No build process needed - static files only'",
+    "lint": "npx htmlhint index.html && npx stylelint styles.css && npx eslint script.js",
+    "test": "echo 'No tests configured yet'"
+  },
+  "keywords": [
+    "fitness",
+    "landing-page",
+    "responsive",
+    "html",
+    "css",
+    "javascript",
+    "fitness-app",
+    "workout-tracking",
+    "health",
+    "mobile-first"
+  ],
+  "author": {
+    "name": "FitTrack Team",
+    "email": "team@fittrack-app.com",
+    "url": "https://fittrack-app.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fittrack/landing-page.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fittrack/landing-page/issues"
+  },
+  "homepage": "https://fittrack-app.com",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "htmlhint": "^1.0.0",
+    "stylelint": "^14.0.0",
+    "http-server": "^14.0.0",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "manifest.json",
+    "README.md"
+  ]
+}
